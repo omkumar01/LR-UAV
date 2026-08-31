@@ -2,7 +2,7 @@
 
 ## **Executive Summary**
 
-The deployment of a robust, long-range Unmanned Aerial Vehicle (UAV) communication and control system over a 4G/LTE network requires a synthesis of embedded electronics, real-time networking, and resilient software architectures. Operating in environments such as Bhopal, Madhya Pradesh, introduces specific constraints: the Indian cellular landscape heavily utilizes Carrier-Grade NAT (CGNAT), experiences highly variable latency (ranging from 40 ms to over 500 ms depending on tower congestion), and is subject to intermittent thermal and geographic signal degradation. An architecture designed for this environment must treat the network as fundamentally untrusted and highly volatile.  
+The deployment of a robust, long-range Unmanned Aerial Vehicle (UAV) communication and control system over a 4G/LTE network requires a synthesis of embedded electronics, real-time networking, and resilient software architectures. Operating in typical regional environments introduces specific constraints: the cellular landscape heavily utilizes Carrier-Grade NAT (CGNAT), experiences highly variable latency (ranging from 40 ms to over 500 ms depending on tower congestion), and is subject to intermittent thermal and geographic signal degradation. An architecture designed for this environment must treat the network as fundamentally untrusted and highly volatile.  
 To achieve continuous telemetry, sub-250 ms video streaming, and secure command and control (C2), the architecture must abstract network volatility from flight-critical functions. The design strictly isolates the Flight Control Plane—managed by a dedicated hardware autopilot—from the Management, Telemetry, and Video Planes, which are managed by a companion computer. The system relies on a Raspberry Pi Compute Module 4 (CM4) acting as the companion computer, interfaced with a Pixhawk-standard H7 Flight Controller running ArduPilot. The CM4 leverages hardware-accelerated H.264 encoding and WebRTC for low-latency video, while a dedicated routing daemon (mavlink-router) handles MAVLink 2 routing over an outbound WireGuard VPN tunnel to bypass CGNAT.  
 This architecture guarantees that the flight controller retains ultimate authority over stabilization and autonomous failsafe execution independent of the network state. Simultaneously, the companion computer orchestrates complex routing, hardware monitoring, cryptographic authentication, and high-bandwidth data transmission. The resulting system scales smoothly from a single experimental prototype to a geographically distributed fleet.
 
@@ -99,7 +99,7 @@ Therefore, the Raspberry Pi CM4 (configured with 4GB RAM, no Wi-Fi to reduce int
 
 ### **4G/LTE Modem Integration**
 
-Consumer USB cellular dongles are notorious for overheating and experiencing thermal shutdown during continuous uplink transmission. The recommended architecture utilizes an M.2 Key-B cellular modem, specifically the Quectel EM06-E (LTE Cat 6\) or an equivalent industrial module, integrated directly onto the CM4 carrier board via USB 3.0 or PCIe. LTE Cat 6 supports Carrier Aggregation, allowing the modem to combine multiple frequency bands simultaneously, significantly improving uplink bandwidth in congested urban environments like Bhopal.  
+Consumer USB cellular dongles are notorious for overheating and experiencing thermal shutdown during continuous uplink transmission. The recommended architecture utilizes an M.2 Key-B cellular modem, specifically the Quectel EM06-E (LTE Cat 6\) or an equivalent industrial module, integrated directly onto the CM4 carrier board via USB 3.0 or PCIe. LTE Cat 6 supports Carrier Aggregation, allowing the modem to combine multiple frequency bands simultaneously, significantly improving uplink bandwidth in congested urban environments.  
 The modem requires specialized power architecture. LTE transmitters can draw transient current spikes exceeding 2.5 Amps when negotiating with a distant cell tower. If the modem is powered directly from the Raspberry Pi’s 5V rail or the flight controller's power module, these spikes will cause instantaneous voltage sag (brownouts), rebooting the companion computer or destabilizing the avionics. The modem must be powered via a dedicated, high-quality switching Buck converter (e.g., stepping down from the flight battery to 3.3V, rated for 4A continuous output) with ample low-ESR bypass capacitance. This regulator must share a common ground with the CM4 but remain electrically isolated from the sensitive flight controller power rails.
 
 ## **Onboard Software Stack**
@@ -327,7 +327,7 @@ The architecture anticipates and actively manages complex failure states through
 
 * Camera Capture to HW Encode: 15 ms.  
 * WebRTC Packetization & Encryption: 5 ms.  
-* 4G Radio Air Interface (Bhopal average): 40 \- 120 ms.  
+* 4G Radio Air Interface (average): 40 \- 120 ms.  
 * Cloud VPS Routing and Turn: 10 ms.  
 * GCS Download & Decode: 20 ms.  
 * **Total Expected Glass-to-Glass Video Latency:** 90 ms to 170 ms. This allows for comfortable situational awareness and navigation.

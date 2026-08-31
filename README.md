@@ -291,7 +291,7 @@ LTE Cat 6 in India can sustain 10–25 Mbps uplink nominally, providing ample he
 |---|---|
 | Camera Capture to HW Encode | 15 ms |
 | WebRTC Packetization & Encryption | 5 ms |
-| 4G Radio Air Interface (Bhopal avg) | 40 – 120 ms |
+| 4G Radio Air Interface (average) | 40 – 120 ms |
 | Cloud VPS Routing & TURN | 10 ms |
 | GCS Download & Decode | 20 ms |
 | **Total Glass-to-Glass** | **90 – 170 ms** |
