@@ -2,7 +2,7 @@
 
 > ⚠️ **PROJECT ON HAULT — DEVELOPMENT SUSPENDED**
 >
-> This project is currently **on halt** and no longer under active development due to **financial constraints**. There is no funding available to continue hardware procurement, cloud infrastructure, or ongoing engineering work. The repository is preserved as-is for reference and educational purposes, but **issues, pull requests, and support requests will not be addressed** until funding is secured or the project is revived.
+> This project is currently **on halt** and no longer under active development/research due to **financial constraints**. There is no funding available to continue hardware procurement, cloud infrastructure, or ongoing engineering work. The repository is preserved as-is for reference and educational purposes, but **issues, pull requests, and support requests will not be addressed** until funding is secured or the project is revived.
 >
 > No further code changes, releases, or maintenance updates are expected at this time.
 
