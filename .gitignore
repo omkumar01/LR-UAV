@@ -1,0 +1,236 @@
+# =============================================================================
+# OS / Editor
+# =============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.naf
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Vim
+*.swp
+*.swo
+*~
+.backup
+.swap/
+ Session.vim
+ session.vim
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# JetBrains / IDEs
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+out/
+captures/
+.suckroot.xml
+
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Pytest
+.pytest_cache/
+.tox/
+.nox/
+coverage/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# FastAPI
+.mypy_cache/
+.ruff_cache/
+.pytype/
+
+# =============================================================================
+# Rust
+# =============================================================================
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# =============================================================================
+# C / C++
+# =============================================================================
+*.o
+*.obj
+*.exe
+*.out
+*.bin
+*.elf
+*.hex
+*.list
+*.map
+*.d
+*.pdb
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.cache
+*.tmp
+*.tmpdir
+*.pch
+*.exp
+*.iml
+*.suo
+*.user
+*.userosscache
+*.sln
+*.suo
+*.user
+*.vscode/*/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+!Makefile
+*.cmake
+CMakeScripts/
+Testing/
+install_manifest.txt
+compile_commands.json
+compile_commands.json.*
+*.sln
+install/
+x64/
+Win32/
+NSIS/
+builds/
+_ideas/
+.vscode/
+
+# =============================================================================
+# Node.js / JavaScript
+# =============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.yarn/
+.next/
+.nuxt/
+.angular/
+dist/
+.cache/
+.parcel-cache/
+
+# =============================================================================
+# Docker
+# =============================================================================
+.docker-volumes/
+
+# =============================================================================
+# Kubernetes
+# =============================================================================
+.kube/
+.terraform/
+crashloop-backoff/
+
+# =============================================================================
+# Environment / Secrets
+# =============================================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.certs/
+secrets/
+credentials/
+*.creds
+
+# =============================================================================
+# Logs
+# =============================================================================
+*.log
+logs/
+.log/
+
+# =============================================================================
+# Archives / Packages
+# =============================================================================
+*.iso
+*.tar
+*.tgz
+*.gz
+*.zip
+*.apk
+*.rpm
+*.deb
+
+# =============================================================================
+# IDE / Workspace Specific
+# =============================================================================
+.history/
+*.swp
+*.swo
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+.metadata/
+.nautilus-backup/
+.xpaf/
+
+.om-harness/
